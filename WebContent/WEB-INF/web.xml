@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Demo</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>authorizationServlet</servlet-name>
+    <servlet-class>com.rex.google.AuthorizationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>authorizationServlet</servlet-name>
+    <url-pattern>/authorizationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>oauth2callback</servlet-name>
+    <servlet-class>com.rex.google.AuthorizationCallbackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>oauth2callback</servlet-name>
+    <url-pattern>/oauth2callback</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
